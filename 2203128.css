@@ -1,0 +1,133 @@
+.head{
+    width: 100%;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 28pt;
+    color:#4C4C6D;
+    text-decoration: overline underline;
+}
+
+.content{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: black;
+    color: white;
+    font-size: 28pt;
+    width: 100%;
+    
+    padding: 28px;
+    word-wrap: normal;
+    padding-bottom: 5%;
+    text-align: center;
+    
+
+}
+.btn{
+    
+    border: 0;
+    border-radius: 10px;
+    background-color:#eb4e4e;
+    font-size: 25pt;
+    padding: 14px 28px;
+    color: white;
+    display: inline;
+}
+.circle:hover{
+    background-color:#94ffbd;
+    color: black;
+    font-weight: 550;
+}
+.rect:hover{
+    background-color:#94ffbd;
+    color: rgb(20, 0, 0);
+    font-weight: 550;
+}
+
+p.content_obj{
+    font-size: 22pt;
+}
+
+.inp{
+    font-size: 22pt;
+}
+.box{
+    font-size: large;
+    height: 25pt;
+}
+.but{
+    display: flex;
+    
+}
+
+.buttons{
+    margin:auto;
+    border: 0;
+    background-color: black;
+    color: white;
+    padding:14px 20px;
+    font-size: 18pt;
+    cursor:pointer;
+    
+}
+#validate_cir:hover{
+    background-color:#f17e1a ;
+    color: rgb(253, 249, 249);
+    font-weight: 600;
+    
+}
+#draw_cir:hover{
+    background-color: #1B9C85;
+    color: white;
+    font-weight: 600;
+    
+}
+#comp_cir:hover{
+    background-color: #3d38df;
+    color: white;
+    font-weight: 600;
+}
+#clear_inp:hover{
+    background-color: #d23538;
+    color: white;
+    font-weight: 600;
+}
+#clr1:hover{
+    background-color: #d23538;
+    color: white;
+    font-weight: 600;
+}
+#clr2:hover{
+    background-color: #d23538;
+    color: white;
+    font-weight: 600;
+}
+
+
+#validate_rect:hover{
+    background-color:#f17e1a ;
+    color: rgb(253, 249, 249);
+    font-weight: 600;
+}
+#draw_rect:hover{
+    background-color: #1B9C85;
+    color: white;
+    font-weight: 600;
+}
+#comp_rect:hover{
+    background-color: #3d38df;
+    color: white;
+    font-weight: 600;
+}
+
+canvas{
+    padding: 15pt;
+}
+
+footer{
+    width: 100%;
+    font-size: 20pt;
+    text-align: center;
+    background-color: #4C4C6D;
+    color: white;
+    margin-top: 2%;
+    font-family: monospace;
+}

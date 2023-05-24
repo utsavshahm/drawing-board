@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS102-Assignment</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$'],['\\(','\\)']]}});
+    </script>
+
+    <!-- <link rel="stylesheet" href="2203128.css"> -->
+
+
+    <style>
+    /* CSS of the website */
+    .head{
+        width: 100%;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: 700;
+        font-size: 28pt;
+        color:#4C4C6D;
+        text-decoration: overline underline;
+    }
+
+    .content{
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        background-color: black;
+        color: white;
+        font-size: 28pt;
+        width: 100%;
+        
+        padding: 28px;
+        word-wrap: normal;
+        padding-bottom: 5%;
+        text-align: center;
+        
+
+    }
+    .btn{
+        
+        border: 0;
+        border-radius: 10px;
+        background-color:#eb4e4e;
+        font-size: 25pt;
+        padding: 14px 28px;
+        color: white;
+        display: inline;
+    }
+    .circle:hover{
+        background-color:#94ffbd;
+        color: black;
+        font-weight: 550;
+    }
+    .rect:hover{
+        background-color:#94ffbd;
+        color: rgb(20, 0, 0);
+        font-weight: 550;
+    }
+
+    p.content_obj{
+        font-size: 22pt;
+    }
+
+    .inp{
+        font-size: 22pt;
+    }
+    .box{
+        font-size: large;
+        height: 25pt;
+    }
+    .but{
+        display: flex;
+        
+    }
+
+    .buttons{
+        margin:auto;
+        border: 0;
+        background-color: black;
+        color: white;
+        padding:14px 20px;
+        font-size: 18pt;
+        cursor:pointer;
+        
+    }
+    #validate_cir:hover{
+        background-color:#f17e1a ;
+        color: rgb(253, 249, 249);
+        font-weight: 600;
+        
+    }
+    #draw_cir:hover{
+        background-color: #1B9C85;
+        color: white;
+        font-weight: 600;
+        
+    }
+    #comp_cir:hover{
+        background-color: #3d38df;
+        color: white;
+        font-weight: 600;
+    }
+    #clear_inp:hover{
+        background-color: #d23538;
+        color: white;
+        font-weight: 600;
+    }
+    #clr1:hover{
+        background-color: #d23538;
+        color: white;
+        font-weight: 600;
+    }
+    #clr2:hover{
+        background-color: #d23538;
+        color: white;
+        font-weight: 600;
+    }
+
+
+    #validate_rect:hover{
+        background-color:#f17e1a ;
+        color: rgb(253, 249, 249);
+        font-weight: 600;
+    }
+    #draw_rect:hover{
+        background-color: #1B9C85;
+        color: white;
+        font-weight: 600;
+    }
+    #comp_rect:hover{
+        background-color: #3d38df;
+        color: white;
+        font-weight: 600;
+    }
+
+    canvas{
+        padding: 15pt;
+    }
+
+    footer{
+        width: 100%;
+        font-size: 20pt;
+        text-align: center;
+        background-color: #4C4C6D;
+        color: white;
+        margin-top: 2%;
+        font-family: monospace;
+    }
+
+    </style>
+</head>
+<body>
+
+    <div class="head" style="color:rgb(198, 129, 32)"><h1>Drawing Board</h1></div> 
+
+    <div class="content">
+        
+    This website is specifically created to aid students who struggle with visualizing simple geometrical shapes like circles and rectangles. It offers visual representations of these shapes to enhance students' understanding of their properties and characteristics. The goal is to improve students' spatial perception and comprehension of fundamental geometry concepts.
+        <br>
+        <br>
+        
+        <button class="btn circle" onclick="document.location='#circlehead'">Circle</button> <!--To create the buttons of Circle and Rectangle-->
+        <button class="btn rect" onclick="document
+        .location='#recthead'">Rectangle</button>
+
+        <br>
+        <br>
+        Enjoy scrolling through my website! Cheers!
+    </div>
+
+    <div class="head" style="font-size: 20pt;" id="circlehead"><h1>Circle</h1></div>
+
+    <p class="content_obj"> The $area$ of a circle with radius $r$ is given by $\pi r^2$. Similarly, the $perimeter$ of a circle with radius $r$ is given by $2 \pi r$. Now, let's visualize the circle using Javascript and HTML. </p>
+
+    <!-- Latex is used here for various elements: imported from mathjax library which we had imported -->
+
+    <div class="inp">
+        <label for="rad">Enter the radius $r$: </label>
+        <input class="box" type="number" name="rad" id="radius"> <!--create text box to take input radius from user-->
+
+    </div>
+    <br>
+    <div class="but"> <!--Various buttons creation-->
+        <span >
+            <button class="buttons"  id="validate_cir">Validate Radius</button>
+        </span>
+        <span>
+            <button class="buttons" id="draw_cir">Draw</button>
+        </span>
+        <span>
+            <button class="buttons" id="comp_cir">Compute Area/Perimeter</button>
+
+        </span>
+        <span>
+            <button class="buttons" id="clr1">Clear</button>
+        </span>
+        
+    </div>
+    <br>
+
+    <canvas id="paper1" width="400px" height="400px" style="border:2.5px solid black"></canvas>
+
+    <p class="content_obj"> Paper size: $400px \times 400px$. Max allowed radius: 200. </p>
+
+
+    <div class="head" style="font-size: 20pt;" id="recthead"><h1>Rectangle</h1></div>
+
+    <p class="content_obj"> The $area$ of a rectangle with width $w$ and height $h$ is given by $wh$. Similarly, the $perimeter$ of a rectangle with width $a$ and height $b$ is given by $2(a+b)$. Now, let's visualize the rectangle using JavaScript and HTML.
+    </p>
+
+    <div class="inp"> <!--Create text box to take input from user: length and breadth-->
+        <label for="width">Enter the width $w$: </label>
+        <input type="number" class="box" name="width" id="width">
+        <label for="height">Enter the height $h$: </label>
+        
+        <input type="number" class="box" name="height" id="height">
+    </div>
+    <br>
+
+    <div class="but">
+        <span >
+            <button class="buttons"  id="validate_rect">Validate width/height</button>
+        </span>
+        <span>
+            <button class="buttons" id="draw_rect">Draw</button>
+        </span>
+        <span>
+            <button class="buttons" id="comp_rect">Compute Area/Perimeter</button>
+        </span>
+
+        <span>
+            <button class="buttons" id="clr2" name="clear">Clear</button>
+        </span>
+    
+    </div>
+    <br>
+
+    <canvas id="paper2" width="600px" height="400px" style="border:2.5px solid black"></canvas>
+
+    <p class="content_obj"> Paper size: $600px \times 400px$. Max allowed width:600 and height:400. </p>
+
+
+    <button class="buttons" id="clear_inp">Clear Inputs</button>
+
+
+    <footer> &copy Copyright by Utsav Shah</footer> <!--Footer of the page-->
+
+
+    <!-- Javascript code for the website -->
+    <script>
+
+        // Validating the inputs
+        
+        const validate_rad=document.getElementById('validate_cir');
+        validate_rad.onclick=function(){
+            var radii=document.getElementById('radius').value;
+            
+            if(radii<=200 && radii>0){
+                alert("Valid radius entered!");
+            }
+            
+            else{
+                alert("Please enter a correct radius");
+            }
+        }
+        
+        // Drawing the object: circle
+        const draw_rad=document.getElementById('draw_cir');
+
+        draw_rad.onclick=function(){
+            var radii=document.getElementById('radius').value;
+
+            var ctx=document.getElementById('paper1').getContext("2d");
+    
+            ctx.beginPath();
+            ctx.strokeStyle="red";
+            ctx.arc(200,200,radii,0,2*Math.PI);
+            ctx.stroke();
+        }
+
+        // Computing area and perimeter
+        const compute_circle=document.getElementById('comp_cir')
+
+        compute_circle.onclick=function(){
+            var radii=document.getElementById('radius').value;
+
+            let area=Math.PI*radii*radii;
+            let peri=2*Math.PI*radii;
+            alert('The area of the circle is '+area+"\nThe perimeter of a circle is: "+peri);
+            
+        }
+
+        // Validating the inputs
+
+        const validate_rectangle=document.getElementById('validate_rect');
+
+        
+        validate_rectangle.onclick=function(){
+            var wid=document.getElementById('width').value;
+            var hgt=document.getElementById('height').value;
+            
+            if(wid==='' || hgt==='' || hgt>400 || wid>600 || hgt<=0 || wid<=0){
+                alert("Please enter correct dimensions!");
+            }
+            else{
+                alert("Valid width and height is entered.");
+            }
+            
+        }
+
+        // Drawing the object: rectangle
+
+        const draw_rectangle=document.getElementById('draw_rect');
+
+        draw_rectangle.onclick=function(){
+            var wid=document.getElementById('width').value;
+            var hgt=document.getElementById('height').value;
+
+            var ctx=document.getElementById('paper2').getContext("2d");
+    
+            ctx.beginPath();
+            ctx.strokeStyle="red";
+            ctx.rect(0,0,wid,hgt);
+            ctx.stroke();
+
+
+        }
+
+        // Computing area and perimeter
+        const compute_rectangle=document.getElementById('comp_rect')
+
+        compute_rectangle.onclick=function(){
+            var wid=document.getElementById('width').value;
+            var hgt=document.getElementById('height').value;
+            
+
+            let area_rect=wid*hgt;
+            let peri_rect=2*wid + 2*hgt;
+            alert('The area of the rectangle is '+area_rect+"\nThe perimeter of a rectangle is: "+peri_rect);
+            
+            
+        }
+
+        // Javascript code for Clear buttons
+        const clearbut=document.getElementById('clear_inp');
+
+        clearbut.onclick=function(){
+            const rad=document.getElementById('radius').value='';
+            const wid=document.getElementById('width').value='';
+            const hgt=document.getElementById('height').value='';
+
+            let canvas1=document.getElementById('paper1');
+            let canvas2=document.getElementById('paper2');
+    
+            let clear1=document.getElementById('paper1').getContext('2d');
+            let clear2=document.getElementById('paper2').getContext('2d');
+    
+            clear1.clearRect(0,0,400,400)
+            clear2.clearRect(0,0,600,400)
+        }
+
+        const clearbut1=document.getElementById('clr1');
+        clearbut1.onclick=function(){
+            const rad=document.getElementById('radius').value='';
+            let canvas1=document.getElementById('paper1');
+            let clear1=document.getElementById('paper1').getContext('2d');
+            clear1.clearRect(0,0,400,400)
+        }
+        const clearbut2=document.getElementById('clr2');
+        clearbut2.onclick=function(){
+            const wid=document.getElementById('width').value='';
+            const hgt=document.getElementById('height').value='';
+            let canvas2=document.getElementById('paper2');
+            let clear2=document.getElementById('paper2').getContext('2d');
+            clear2.clearRect(0,0,600,400)
+        }
+
+    </script>
+</body>
+</html>
